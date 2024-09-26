@@ -1,9 +1,48 @@
 # Release notes
 
-## Trino Gateway 10 (24 July 2024)
+## Trino Gateway 11 (12 Sep 2024)
+
+[JAR file gateway-ha-11-jar-with-dependencies.jar](https://repo1.maven.org/maven2/io/trino/gateway/gateway-ha/11/gateway-ha-11-jar-with-dependencies.jar),
+Container image `trinodb/trino-gateway:11`
+
+* [:warning: Breaking change:](#breaking) Require Java 22 for build and runtime.
+  ([#441](https://github.com/trinodb/trino-gateway/pull/441))
+* Add support for determining routing group in an external service.
+  ([#423](https://github.com/trinodb/trino-gateway/pull/423))
+* Add an option to forward requests without adding `X-Forwarded-*` HTTP headers
+  with the `addXForwardedHeaders: false` configuration in `routing`.
+  ([#417](https://github.com/trinodb/trino-gateway/pull/417))
+* Add OpenMetrics endpoint to
+  [enable monitoring](operation.md#monitoring) with Prometheus and compatible systems.
+  ([#429](https://github.com/trinodb/trino-gateway/pull/429))
+* Add option to [deactivate hostname verification for the certificate 
+  of the Trino clusters](security.md#cert-trino).
+  ([#436](https://github.com/trinodb/trino-gateway/pull/436))
+* Add option to use additional paths as Trino client REST API endpoints.
+  ([#326](https://github.com/trinodb/trino-gateway/pull/326))
+* Add timeout parameters for INFO_API and JDBC health checks.
+  ([#424](https://github.com/trinodb/trino-gateway/pull/424))
+* Add support for specifying custom labels in the Helm chart `commonLabels`.
+  ([#448](https://github.com/trinodb/trino-gateway/pull/448))
+* Enable routing for requests to kill query processing.
+  ([#427](https://github.com/trinodb/trino-gateway/issues/427))
+* Fix routing functionality and query history issues caused by lowercase 
+  HTTP headers in HTTP/2 connections.
+  ([#450](https://github.com/trinodb/trino-gateway/issues/450))
+* Fix failures when clients use HTTP/2.
+  ([#451](https://github.com/trinodb/trino-gateway/issues/451))
+* Ensure that the user history dashboard displays the correct user name.
+  ([#370](https://github.com/trinodb/trino-gateway/issues/370))
+* Fix incorrect routing of OAuth logout requests.
+  ([#455](https://github.com/trinodb/trino-gateway/pull/455))
+
+More details and a list of all merged pull requests are [available in the 
+milestone 11 list](https://github.com/trinodb/trino-gateway/pulls?q=is%3Apr+milestone%3A11+is%3Aclosed).
+
+## Trino Gateway 10 (24 Jul 2024)
 
 [JAR file gateway-ha-10-jar-with-dependencies.jar](https://repo1.maven.org/maven2/io/trino/gateway/gateway-ha/10/gateway-ha-10-jar-with-dependencies.jar),
-Docker container `trinodb/trino-gateway:10`
+Container image `trinodb/trino-gateway:10`
 
 * [:warning: Breaking change:](#breaking) Remove support for Dropwizard and
   Jetty Proxy integration and usage. Add
@@ -38,14 +77,14 @@ Docker container `trinodb/trino-gateway:10`
 ## Trino Gateway 9 (8 May 2024)
 
 [JAR file gateway-ha-9-jar-with-dependencies.jar](https://repo1.maven.org/maven2/io/trino/gateway/gateway-ha/9/gateway-ha-9-jar-with-dependencies.jar),
-Docker container `trinodb/trino-gateway:9`
+Container image `trinodb/trino-gateway:9`
 
 * Ensure inclusion of UI in JAR and container artifacts. ([#337](https://github.com/trinodb/trino-gateway/pull/337))
 
 ## Trino Gateway 8 (6 May 2024)
 
 [JAR file gateway-ha-8-jar-with-dependencies.jar](https://repo1.maven.org/maven2/io/trino/gateway/gateway-ha/8/gateway-ha-8-jar-with-dependencies.jar),
-Docker container `trinodb/trino-gateway:8`
+Container image `trinodb/trino-gateway:8`
 
 * Add support for configurable router policies. ([#98](https://github.com/trinodb/trino-gateway/pull/98))
 * Add a router policy based on query count per cluster. ([#98](https://github.com/trinodb/trino-gateway/pull/98))
@@ -59,7 +98,7 @@ Docker container `trinodb/trino-gateway:8`
 ## Trino Gateway 7 (21 Mar 2024)
 
 [JAR file gateway-ha-7-jar-with-dependencies.jar](https://repo1.maven.org/maven2/io/trino/gateway/gateway-ha/7/gateway-ha-7-jar-with-dependencies.jar),
-Docker container `trinodb/trino-gateway:7`
+Container image `trinodb/trino-gateway:7`
 
 * Replace user interface with a new modern UI. ([#116](https://github.com/trinodb/trino-gateway/pull/116))
 * Improve logging configurability. Users must update to the 
@@ -73,7 +112,7 @@ Docker container `trinodb/trino-gateway:7`
 ## Trino Gateway 6 (16 Feb 2024)
 
 [JAR file gateway-ha-6-jar-with-dependencies.jar](https://repo1.maven.org/maven2/io/trino/gateway/gateway-ha/6/gateway-ha-6-jar-with-dependencies.jar),
-Docker container `trinodb/trino-gateway:6`
+Container image `trinodb/trino-gateway:6`
 
 * Add Docker container build, publishing, and usage setup and instructions. ([#86](https://github.com/trinodb/trino-gateway/issues/86))
 

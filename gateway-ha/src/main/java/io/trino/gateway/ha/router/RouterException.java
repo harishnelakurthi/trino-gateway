@@ -11,32 +11,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.trino.gateway.ha.config;
+package io.trino.gateway.ha.router;
 
-import java.util.List;
-
-public class RulesExternalConfiguration
+public class RouterException
+        extends IllegalStateException
 {
-    private String urlPath;
-    private List<String> excludeHeaders;
-
-    public String getUrlPath()
+    public RouterException(String message)
     {
-        return urlPath;
-    }
-
-    public void setUrlPath(String urlPath)
-    {
-        this.urlPath = urlPath;
-    }
-
-    public List<String> getExcludeHeaders()
-    {
-        return this.excludeHeaders;
-    }
-
-    public void setExcludeHeaders(List<String> excludeHeaders)
-    {
-        this.excludeHeaders = excludeHeaders;
+        super(message);
     }
 }
